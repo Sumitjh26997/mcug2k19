@@ -56,7 +56,7 @@
             
             <div class="address">
             <h4>Email</h4>
-            <p><a href="">mcug@mitpune.co.in </a></p>
+            <p><a href="mailto:mcug@mitpune.co.in">mcug@mitpune.co.in</a></p>
             </div>
             
             <div class="address">
@@ -70,21 +70,21 @@
             
             <div class="col-sm-6">
             
-            <form action="#" method="post" name="contact-form" id="main-contact-form">
+            <form name="contact-form" id="main-contact-form">
                                 <div class="form-group">
-                                    <input type="text" required placeholder="Name" class="form-control" name="name">
+                                    <input type="text" required placeholder="Name" class="form-control" name="name" id="name">
                                 </div>
                                 <div class="form-group">
-                                    <input type="email" required placeholder="Email" class="form-control" name="email">
+                                    <input type="email" required placeholder="Email" class="form-control" name="email" id="email">
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" required placeholder="Subject" class="form-control" name="subject">
+                                    <input type="text" required placeholder="Subject" class="form-control" name="subject" id="subject">
                                 </div>
                                 <div class="form-group">
-                                    <textarea required placeholder="Message" rows="8" class="form-control" name="message"></textarea>
+                                    <textarea required placeholder="Message" rows="8" class="form-control" name="message" id="message"></textarea>
                                 </div>
-                                <button class="btn btn-primary" type="submit">SUBMIT</button>
-                            </form>
+                                <button class="btn btn-primary" onclick="form_submit()">SUBMIT</button>
+            </form>
             </div>
             
             </div>
@@ -105,4 +105,19 @@
         </div>
     </footer><!--/#footer-->
  </body>
+ <script src="js/jquery.js"></script>
+ <script>
+     function form_submit(){
+        var name=document.getElementById("name").value;
+        var email=document.getElementById("email").value;
+        var subject=document.getElementById("subject").value;
+        var message=document.getElementById("message").value;
+        
+        $.ajax({
+            url:mail.php,
+            type:"post",
+            data:{}
+        })
+     }   
+ </script>
  </html>
